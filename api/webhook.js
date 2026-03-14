@@ -103,13 +103,13 @@ export default async function handler(req, res) {
       console.log(`✅ Webhook verified: ${shopId}`);
       return res.status(200).send(challenge);
     }
-    return res.sendStatus(403);
+    return res.status(403).send("Forbidden");
   }
 
   // ── POST: Nhận tin nhắn ─────────────────────────────────
   if (req.method === 'POST') {
     const body = req.body;
-    if (body.object !== 'page') return res.sendStatus(200);
+    if (body.object !== 'page') return res.status(200).send("OK");
 
     // Trả 200 ngay cho Facebook — tránh timeout & retry
     res.status(200).send('EVENT_RECEIVED');
@@ -178,7 +178,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  return res.sendStatus(405);
+  return res.status(405).send("Method Not Allowed");
 }
 
 // ══════════════════════════════════════════════════════════
