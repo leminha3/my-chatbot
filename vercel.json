@@ -1,8 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.js": {
-      "maxDuration": 10
-    }
+    "api/webhook.js": { "maxDuration": 10 },
+    "api/zalo.js": { "maxDuration": 10 }
   }
 }
