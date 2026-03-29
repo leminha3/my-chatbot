@@ -100,6 +100,7 @@ export default async function handler(req, res) {
   // ── POST: Nhận sự kiện từ Facebook ──
   if (req.method === 'POST') {
     const body = req.body;
+    console.log('📦 Raw body:', JSON.stringify(body).slice(0, 200));
     if (body.object !== 'page') {
       return res.status(200).send('OK');
     }
