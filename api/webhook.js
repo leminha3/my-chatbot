@@ -78,7 +78,7 @@ function isDuplicate(id) {
 // Webhook URL: .../api/webhook?shop=shop1
 // ══════════════════════════════════════════════════════════
 export default async function handler(req, res) {
-  const shopId = req.query.shop;
+  const shopId = req.query.shop || 'shop1';
   const shop   = SHOPS[shopId];
 
   if (!shop) {
